@@ -14,6 +14,7 @@ API_TOKEN = 'token'
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
+
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     await message.answer("Добро пожаловать в Телеграм бота по созданию демотиваторов.\nДля начала отправьте мне фото и описание, а я сделаю демотиватор.")
@@ -61,8 +62,5 @@ async def handle_docs_photo(message):
         os.remove("1" + f'{id}.png')
         os.remove(f'{id}.png')
 
-
-
 if __name__ == '__main__':
-    # start bot
     executor.start_polling(dp, skip_updates=True)
