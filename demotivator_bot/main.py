@@ -10,10 +10,8 @@ import os
 API_TOKEN = 'token'
 
 
-# Initialize bot
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
-
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
@@ -39,7 +37,6 @@ async def handle_docs_photo(message):
         if message.caption: text = message.caption
         else: text = message.text if message.reply_to_message else ""
         if text == ".": text = ""  
-
 
         fnt = ImageFont.truetype("arial.ttf", 80)
         width = fnt.getsize(text)[0]
